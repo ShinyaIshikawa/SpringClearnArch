@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.adapter.repository.SellItemMapper">
+    <resultMap id="sellItems" type="com.web.domain.model.SellItem">
+        <result property="productCode" column="product_code"/>
+        <result property="productName" column="product_name"/>
+        <result property="salePrice" column="sale_price"/>
+        <result property="itemCondition" column="item_condition"/>
+        <result property="saleDate" column="sale_date"/>
+        <result property="saleStatus" column="sale_status"/>
+    </resultMap>
+    <select id="selectByName" resultMap="sellItems">
+        SELECT
+        	product_code,
+        	product_name,
+        	sale_price,
+        	item_condition,
+        	sale_date,
+        	sale_status
+        FROM tbl_sellitem
+        WHERE name like %#{productName}%
+        AND %#{status}%
+        ORDER BY %#{order}%
+    </select>
+</mapper>
