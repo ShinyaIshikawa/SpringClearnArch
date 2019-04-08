@@ -14,3 +14,17 @@ It is interface adapter.
 ・UI/Web/Device/DB/API
 
 This repository has the following four packages.And this repository use Spring Boot Framework.  
+
+## Installation
+
+・Start MySQL container
+~~~
+docker-compose up -d
+~~~
+
+・API Demo Request 
+~~~
+mvn spring-boot:run
+chmod u+x curl.sh
+./curl.sh
+~~~
